@@ -1,12 +1,14 @@
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Endroid\CmSmsBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
     Endroid\CmSms\Client: ~
-    Endroid\CmSmsBundle\Controller\DashboardController: ~
-    Endroid\CmSmsBundle\Controller\MessageListController:
-        - '@Endroid\CmSmsBundle\Repository\MessageRepository'
-    Endroid\CmSmsBundle\Controller\MessageSendController:
-        - '@Endroid\CmSmsBundle\Repository\MessageRepository'
-    Endroid\CmSmsBundle\Controller\StatusUpdateController:
-        - '@Endroid\CmSmsBundle\Repository\MessageRepository'
     Endroid\CmSmsBundle\Repository\MessageRepository:
         factory: ['@Doctrine\ORM\EntityManagerInterface', 'getRepository']
         arguments:
