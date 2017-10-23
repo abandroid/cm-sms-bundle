@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Endroid\\EndroidCmSmsBundle\\": "src/"
+            "Endroid\\CmSmsBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Endroid\\EndroidCmSmsBundle\\Tests\\": "tests/"
+            "Endroid\\CmSmsBundle\\Tests\\": "tests/"
         }
     },
     "extra": {
