@@ -11,6 +11,6 @@ namespace Endroid\CmSmsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class EndroidCmSmsBundle extends Bundle
+final class EndroidCmSmsBundle extends Bundle
 {
 }

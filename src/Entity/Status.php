@@ -17,95 +17,61 @@ use Endroid\CmSms\Status as DomainStatus;
  * @ORM\Entity
  * @ORM\Table(name="cm_sms_status")
  */
-class Status
+final class Status
 {
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="datetime")
-     *
-     * @var DateTime
      */
-    protected $dateCreated;
+    private $dateCreated;
 
     /**
      * @ORM\Column(type="integer")
-     *
-     * @var int
      */
-    protected $code;
+    private $code;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Endroid\CmSms\Bundle\CmSmsBundle\Entity\Message", inversedBy="statuses", cascade={"persist"})
-     *
-     * @var Message
+     * @ORM\ManyToOne(targetEntity="Endroid\CmSmsBundle\Entity\Message", inversedBy="statuses", cascade={"persist"})
      */
-    protected $message;
+    private $message;
 
     /**
      * @ORM\Column(type="array")
-     *
-     * @var array
      */
-    protected $webHookData;
+    private $webHookData;
 
-    /**
-     * @return string
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return int
-     */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
 
-    /**
-     * @return Message
-     */
-    public function getMessage()
+    public function getMessage(): Message
     {
         return $this->message;
     }
 
-    /**
-     * @param Message $message
-     *
-     * @return $this
-     */
-    public function setMessage(Message $message)
+    public function setMessage(Message $message): void
     {
         $this->message = $message;
-
-        return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function getWebHookData()
+    public function getWebHookData(): array
     {
         return $this->getWebHookData();
     }
 
-    /**
-     * @param DomainStatus $domainStatus
-     *
-     * @return static
-     */
-    public static function fromDomain(DomainStatus $domainStatus)
+    public static function fromDomain(DomainStatus $domainStatus): self
     {
         $status = new static();
         $status->dateCreated = $domainStatus->getDateCreated();

@@ -18,80 +18,59 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="Endroid\CmSms\Bundle\CmSmsBundle\Repository\MessageRepository")
+ * @ORM\Entity(repositoryClass="Endroid\CmSmsBundle\Repository\MessageRepository")
  * @ORM\Table(name="cm_sms_message")
  */
-class Message
+final class Message
 {
     /**
      * @ORM\Column(type="string")
      * @ORM\Id
-     *
-     * @var string
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="text")
-     *
-     * @var string
      */
-    protected $body;
+    private $body;
 
     /**
      * @ORM\Column(type="string", nullable=true)
-     *
-     * @var string
      */
-    protected $sender;
+    private $sender;
 
     /**
      * @ORM\Column(type="array")
-     *
-     * @var array
      */
-    protected $recipients;
+    private $recipients;
 
     /**
      * @ORM\Column(type="array")
-     *
-     * @var array
      */
-    protected $options;
+    private $options;
 
     /**
      * @ORM\Column(type="datetime")
      * @Serializer\Type("DateTime<'Y-m-d H:i'>")
-     *
-     * @var DateTime
      */
-    protected $dateCreated;
+    private $dateCreated;
 
     /**
      * @ORM\Column(type="datetime")
      * @Serializer\Type("DateTime<'Y-m-d H:i'>")
-     *
-     * @var DateTime
      */
-    protected $dateUpdated;
+    private $dateUpdated;
 
     /**
      * @ORM\Column(type="integer")
-     *
-     * @var int
      */
-    protected $statusCode;
+    private $statusCode;
 
     /**
-     * @ORM\OneToMany(targetEntity="Endroid\CmSms\Bundle\CmSmsBundle\Entity\Status", mappedBy="message", cascade={"persist"})
-     *
-     * @var ArrayCollection|Status[]
+     * @ORM\OneToMany(targetEntity="Endroid\CmSmsBundle\Entity\Status", mappedBy="message", cascade={"persist"})
      */
-    protected $statuses;
+    private $statuses;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->statuses = new ArrayCollection();
@@ -99,22 +78,15 @@ class Message
 
     /**
      * @Serializer\VirtualProperty()
-     *
-     * @return string
      */
-    public function getTranslationKey()
+    public function getTranslationKey(): string
     {
         $translationKeys = StatusCode::getTranslationKeys();
 
         return $translationKeys[$this->statusCode];
     }
 
-    /**
-     * @param DomainMessage $domainMessage
-     *
-     * @return static
-     */
-    public static function fromDomain(DomainMessage $domainMessage)
+    public static function fromDomain(DomainMessage $domainMessage): self
     {
         $message = new static();
         $message->id = $domainMessage->getId();
@@ -129,19 +101,14 @@ class Message
         return $message;
     }
 
-    /**
-     * @param Status $status
-     *
-     * @return $this
-     */
-    public function addStatus(Status $status)
+    public function addStatus(Status $status): void
     {
         $status->setMessage($this);
         $this->statuses->add($status);
 
         // Never change the resulting status code when a delivery confirmation was sent
         if ($this->statusCode == StatusCode::DELIVERED) {
-            return $this;
+            return;
         }
 
         $this->statusCode = $status->getCode();

@@ -9,14 +9,14 @@
 
 namespace Endroid\CmSmsBundle\Controller;
 
-use Endroid\CmSms\Bundle\CmSmsBundle\Entity\Message;
-use Endroid\CmSms\Bundle\CmSmsBundle\Repository\MessageRepository;
+use Endroid\CmSmsBundle\Entity\Message;
+use Endroid\CmSmsBundle\Repository\MessageRepository;
 use Endroid\CmSms\Client;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Endroid\CmSms\Message as DomainMessage;
 
-class MessageSendController
+final class MessageSendController
 {
     public function __invoke(string $phoneNumber, Client $client, MessageRepository $repository): Response
     {

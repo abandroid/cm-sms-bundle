@@ -9,17 +9,17 @@
 
 namespace Endroid\CmSmsBundle\Controller;
 
-use Endroid\CmSms\Bundle\CmSmsBundle\Entity\Message;
-use Endroid\CmSms\Bundle\CmSmsBundle\Entity\Status;
-use Endroid\CmSms\Bundle\CmSmsBundle\Exception\InvalidStatusDataException;
-use Endroid\CmSms\Bundle\CmSmsBundle\Repository\MessageRepository;
+use Endroid\CmSms\Exception\InvalidStatusDataException;
+use Endroid\CmSmsBundle\Entity\Message;
+use Endroid\CmSmsBundle\Entity\Status;
+use Endroid\CmSmsBundle\Repository\MessageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Endroid\CmSms\Status as DomainStatus;
 
-class StatusUpdateController
+final class StatusUpdateController
 {
-    public function __invoke(Request $request, MessageRepository $repository)
+    public function __invoke(Request $request, MessageRepository $repository): Response
     {
         // Support both GET and POST
         $data = $request->getMethod() === Request::METHOD_GET ? $request->query->all() : $request->request->all();

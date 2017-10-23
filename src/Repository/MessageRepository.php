@@ -10,9 +10,9 @@
 namespace Endroid\CmSmsBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Endroid\CmSms\Bundle\CmSmsBundle\Entity\Message;
+use Endroid\CmSmsBundle\Entity\Message;
 
-class MessageRepository extends EntityRepository
+final class MessageRepository extends EntityRepository
 {
     public function save(Message $message): void
     {

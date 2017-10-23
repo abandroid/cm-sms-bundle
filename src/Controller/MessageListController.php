@@ -9,11 +9,11 @@
 
 namespace Endroid\CmSmsBundle\Controller;
 
-use Endroid\CmSms\Bundle\CmSmsBundle\Repository\MessageRepository;
+use Endroid\CmSmsBundle\Repository\MessageRepository;
 use Symfony\Component\HttpFoundation\Response;
 use JMS\Serializer\SerializerBuilder;
 
-class MessageListController
+final class MessageListController
 {
     public function __invoke(MessageRepository $repository): Response
     {

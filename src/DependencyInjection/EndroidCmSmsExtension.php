@@ -17,12 +17,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class EndroidCmSmsExtension extends Extension implements PrependExtensionInterface
+final class EndroidCmSmsExtension extends Extension implements PrependExtensionInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $processor = new Processor();
         $config = $processor->processConfiguration(new Configuration(), $configs);
@@ -34,12 +31,8 @@ class EndroidCmSmsExtension extends Extension implements PrependExtensionInterfa
         $clientDefinition->setArguments([$config['product_token'], $config['defaults'], $config['delivery_phone_numbers'], $config['disable_delivery']]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
-        // Add the cmsms package to the assets configuration so the correct manifest is used
         $container->prependExtensionConfig('framework', [
             'assets' => [
                 'packages' => [
