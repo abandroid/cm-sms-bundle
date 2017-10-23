@@ -111,6 +111,7 @@ class Message
 
     /**
      * @param DomainMessage $domainMessage
+     *
      * @return static
      */
     public static function fromDomain(DomainMessage $domainMessage)
@@ -130,6 +131,7 @@ class Message
 
     /**
      * @param Status $status
+     *
      * @return $this
      */
     public function addStatus(Status $status)
