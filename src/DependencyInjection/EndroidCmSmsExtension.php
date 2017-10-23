@@ -9,8 +9,11 @@
 
 namespace Endroid\CmSmsBundle\DependencyInjection;
 
+use Endroid\CmSms\Client;
 use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -24,7 +27,10 @@ class EndroidCmSmsExtension extends Extension implements PrependExtensionInterfa
         $processor = new Processor();
         $config = $processor->processConfiguration(new Configuration(), $configs);
 
-        $clientDefinition = $container->getDefinition('endroid.cm_sms.client');
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
+
+        $clientDefinition = $container->getDefinition(Client::class);
         $clientDefinition->setArguments([$config['product_token'], $config['defaults'], $config['delivery_phone_numbers'], $config['disable_delivery']]);
     }
 
