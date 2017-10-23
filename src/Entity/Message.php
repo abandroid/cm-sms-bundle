@@ -35,7 +35,7 @@ final class Message
     private $body;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string")
      */
     private $sender;
 
@@ -73,7 +73,54 @@ final class Message
 
     public function __construct()
     {
+        $this->recipients = [];
+        $this->options = [];
         $this->statuses = new ArrayCollection();
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getBody(): string
+    {
+        return $this->body;
+    }
+
+    public function getSender(): string
+    {
+        return $this->sender;
+    }
+
+    public function getRecipients(): array
+    {
+        return $this->recipients;
+    }
+
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    public function getDateCreated(): DateTime
+    {
+        return $this->dateCreated;
+    }
+
+    public function getDateUpdated(): DateTime
+    {
+        return $this->dateUpdated;
+    }
+
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    public function getStatuses(): array
+    {
+        return $this->statuses->toArray();
     }
 
     /**
