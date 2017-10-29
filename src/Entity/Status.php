@@ -21,8 +21,8 @@ final class Status
 {
     /**
      * @ORM\Column(type="integer")
-     * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Id
      */
     private $id;
 

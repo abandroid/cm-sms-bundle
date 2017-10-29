@@ -18,7 +18,6 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="Endroid\CmSmsBundle\Repository\MessageRepository")
  * @ORM\Table(name="cm_sms_message")
  */
 final class Message
