@@ -25,7 +25,7 @@ final class EndroidCmSmsExtension extends Extension implements PrependExtensionI
         $config = $processor->processConfiguration(new Configuration(), $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load('services.yaml');
 
         $clientDefinition = $container->getDefinition(Client::class);
         $clientDefinition->setArguments([$config['product_token'], $config['defaults'], $config['delivery_phone_numbers'], $config['disable_delivery']]);
