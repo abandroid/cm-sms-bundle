@@ -8,8 +8,9 @@ services:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
 
-    Endroid\CmSms\Client: ~
+    Endroid\CmSms\Client:
+        public: true
+
     Endroid\CmSmsBundle\Repository\MessageRepository:
         factory: ['@Doctrine\ORM\EntityManagerInterface', 'getRepository']
-        arguments:
-            - 'Endroid\CmSmsBundle\Entity\Message'
+        arguments: ['Endroid\CmSmsBundle\Entity\Message']
