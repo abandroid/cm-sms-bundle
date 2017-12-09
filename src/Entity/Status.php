@@ -17,7 +17,7 @@ use Endroid\CmSms\Status as DomainStatus;
  * @ORM\Entity
  * @ORM\Table(name="cm_sms_status")
  */
-final class Status
+class Status
 {
     /**
      * @ORM\Column(type="integer")

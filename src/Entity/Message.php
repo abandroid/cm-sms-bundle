@@ -20,7 +20,7 @@ use JMS\Serializer\Annotation as Serializer;
  * @ORM\Entity(repositoryClass="Endroid\CmSmsBundle\Repository\MessageRepository")
  * @ORM\Table(name="cm_sms_message")
  */
-final class Message
+class Message
 {
     /**
      * @ORM\Column(type="string")
