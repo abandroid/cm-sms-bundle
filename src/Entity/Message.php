@@ -153,7 +153,7 @@ class Message
         $this->statuses->add($status);
 
         // Never change the resulting status code when a delivery confirmation was sent
-        if ($this->statusCode == StatusCode::DELIVERED) {
+        if (StatusCode::DELIVERED == $this->statusCode) {
             return;
         }
 

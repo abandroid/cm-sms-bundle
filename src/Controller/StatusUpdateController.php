@@ -22,7 +22,7 @@ final class StatusUpdateController
     public function __invoke(Request $request, MessageRepository $repository): Response
     {
         // Support both GET and POST
-        $data = $request->getMethod() === Request::METHOD_GET ? $request->query->all() : $request->request->all();
+        $data = Request::METHOD_GET === $request->getMethod() ? $request->query->all() : $request->request->all();
 
         try {
             $status = DomainStatus::fromWebHookData($data);
