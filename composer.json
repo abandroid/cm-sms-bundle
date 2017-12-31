@@ -2,7 +2,7 @@
     "name": "endroid/cm-sms-bundle",
     "description": "Endroid CM SMS Bundle",
     "keywords": ["endroid", "cm", "sms", "symfony", "bundle"],
-    "homepage": "https://github.com/endroid/EndroidCmSmsBundle",
+    "homepage": "https://github.com/endroid/cm-sms-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
