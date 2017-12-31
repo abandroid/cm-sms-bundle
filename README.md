@@ -1,7 +1,7 @@
 CM SMS
 ======
 
-*By [endroid](http://endroid.nl/)*
+*By [endroid](https://endroid.nl/)*
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/cm-sms-bundle.svg)](https://packagist.org/packages/endroid/cm-sms-bundle)
 [![Build Status](http://img.shields.io/travis/endroid/EndroidCmSmsBundle.svg)](http://travis-ci.org/endroid/EndroidCmSmsBundle)
