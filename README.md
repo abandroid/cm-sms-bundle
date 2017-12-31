@@ -1,10 +1,9 @@
-CM SMS
-======
+# CM SMS Bundle
 
 *By [endroid](https://endroid.nl/)*
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/endroid/cm-sms-bundle.svg)](https://packagist.org/packages/endroid/cm-sms-bundle)
-[![Build Status](http://img.shields.io/travis/endroid/EndroidCmSmsBundle.svg)](http://travis-ci.org/endroid/EndroidCmSmsBundle)
+[![Build Status](http://img.shields.io/travis/endroid/cm-sms-bundle.svg)](http://travis-ci.org/endroid/cm-sms-bundle)
 [![Total Downloads](http://img.shields.io/packagist/dt/endroid/cm-sms-bundle.svg)](https://packagist.org/packages/endroid/cm-sms-bundle)
 [![Monthly Downloads](http://img.shields.io/packagist/dm/endroid/cm-sms-bundle.svg)](https://packagist.org/packages/endroid/cm-sms-bundle)
 [![License](http://img.shields.io/packagist/l/endroid/cm-sms-bundle.svg)](https://packagist.org/packages/endroid/cm-sms-bundle)

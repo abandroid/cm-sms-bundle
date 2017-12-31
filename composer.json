@@ -1,7 +1,7 @@
 {
     "name": "endroid/cm-sms-bundle",
     "description": "Endroid CM SMS Bundle",
-    "keywords": ["endroid", "cm", "sms", "symfony", "bundle"],
+    "keywords": ["endroid", "cm", "sms", "symfony", "bundle", "php"],
     "homepage": "https://github.com/endroid/cm-sms-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
@@ -13,6 +13,7 @@
         }
     ],
     "require": {
+        "php": ">=7.1",
         "endroid/cm-sms": "^2.0",
         "twig/twig": "^2.4",
         "doctrine/orm": "^2.5",
