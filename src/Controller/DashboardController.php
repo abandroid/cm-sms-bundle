@@ -16,6 +16,6 @@ final class DashboardController
 {
     public function __invoke(Environment $twig): Response
     {
-        return new Response($twig->render('@EndroidCmSms/Dashboard/index.html.twig'));
+        return new Response($twig->render('@EndroidCmSms/dashboard.html.twig'));
     }
 }
