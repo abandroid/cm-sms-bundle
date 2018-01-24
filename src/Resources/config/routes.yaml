@@ -1,15 +1,15 @@
-endroid_cm_sms_dashboard:
+cm_sms_dashboard:
     path: /
     controller: Endroid\CmSmsBundle\Controller\DashboardController
 
-endroid_cm_sms_message_list:
+cm_sms_message_list:
     path: /message
     controller: Endroid\CmSmsBundle\Controller\MessageListController
 
-endroid_cm_sms_message_send:
+cm_sms_message_send:
     path: /message/send/{phoneNumber}
     controller: Endroid\CmSmsBundle\Controller\MessageSendController
 
-endroid_cm_sms_status_update:
+cm_sms_status_update:
     path: /status/update
     controller: Endroid\CmSmsBundle\Controller\StatusUpdateController

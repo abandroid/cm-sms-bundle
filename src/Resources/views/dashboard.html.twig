@@ -14,8 +14,8 @@
     {{ parent() }}
     <script>
         let appConfig = {
-            loadPath: "{{ path('endroid_cm_sms_message_list') }}",
-            testPath: "{{ path('endroid_cm_sms_message_send', { phoneNumber: '0000000000' }) }}",
+            loadPath: "{{ path('cm_sms_message_list') }}",
+            testPath: "{{ path('cm_sms_message_send', { phoneNumber: '0000000000' }) }}",
         }
     </script>
     <script src="{{ preload(asset('/build/dashboard.js', 'endroid_cm_sms')) }}"></script>
