@@ -13,10 +13,11 @@ use Endroid\BundleTest\BundleTestCase;
 
 class DashboardControllerTest extends BundleTestCase
 {
-    public function testListController()
+    public function testDashboardController()
     {
         $client = static::createClient();
         $client->request('GET', '/cm-sms/');
+        echo $client->getResponse()->getContent();
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
