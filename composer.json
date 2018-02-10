@@ -17,7 +17,8 @@
         "endroid/cm-sms": "^2.0",
         "twig/twig": "^2.4",
         "doctrine/orm": "^2.5",
-        "symfony/asset": "^3.0|^4.0"
+        "symfony/asset": "^3.0|^4.0",
+        "symfony/web-link": "^3.0|^4.0"
     },
     "require-dev": {
         "endroid/bundle-test": "dev-master"
