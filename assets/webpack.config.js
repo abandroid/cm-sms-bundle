@@ -8,7 +8,7 @@ Encore
     .createSharedEntry('base', './js/base.js')
     .addEntry('dashboard', './js/dashboard.js')
     .autoProvidejQuery()
-    .enableReactPreset()
+    .enableVueLoader()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
 ;

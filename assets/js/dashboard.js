@@ -1,8 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Application from './components/Application';
+import Vue from 'vue';
+import Dashboard from './components/Dashboard.vue';
 
-ReactDOM.render(
-    <Application loadPath={appConfig.loadPath} testPath={appConfig.testPath} />,
-    document.getElementById('application')
-);
+new Vue({
+    el: '#application',
+    render: h => h(Dashboard)
+});
