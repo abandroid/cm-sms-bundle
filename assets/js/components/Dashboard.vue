@@ -1,15 +1,25 @@
 <template>
     <div class="row">
         <div class="col-md-12">
+            <b-alert variant="success"
+                     dismissible
+                     :show="showSuccessAlert"
+                     @dismissed="showSuccessAlert=false">
+                {{ successMessage }}
+            </b-alert>
+            <b-alert variant="danger"
+                     dismissible
+                     :show="showDangerAlert"
+                     @dismissed="showDangerAlert=false">
+                {{ dangerMessage }}
+            </b-alert>
             <div class="box">
                 <div class="box-body">
                     <form class="form-inline">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Phone number" onKeyUp={this.updatePhoneNumber} />
-                            &nbsp;
-                            <button type="button" class="btn btn-primary" onClick={() => this.sendTest(this.state.phoneNumber)}>Send test</button>
-                            &nbsp;
-                            <button type="button" class="btn btn-success" onClick={() => this.loadState()}>Refresh</button>
+                            <input class="form-control" type="text" placeholder="Phone number" v-model="phoneNumber" />&nbsp;
+                            <button type="button" class="btn btn-primary" v-on:click="sendTest">Send test</button>&nbsp;
+                            <button type="button" class="btn btn-success" v-on:click="loadState">Refresh</button>
                         </div>
                     </form>
                     <br />
@@ -21,7 +31,7 @@
                             <th>ID</th>
                             <th>Body</th>
                             <th>Recipients</th>
-                            <th>Translation</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -45,23 +55,49 @@
     import axios from 'axios';
 
     export default {
-        name: 'application',
+        name: 'dashboard',
         data: function () {
             return {
-                messages: []
+                messages: [],
+                phoneNumber: '00000000',
+                showSuccessAlert: false,
+                successMessage: '',
+                showDangerAlert: false,
+                dangerMessage: ''
             }
         },
         methods: {
-            fetchArticles: function () {
+            loadState: function () {
                 axios.get('/cm-sms/message').then((response) => {
                     this.messages = response.data.messages;
                 }, (error) => {
-                    console.log(error)
+                    this.dangerMessage = 'State could not be loaded';
+                    this.showDangerAlert = true;
+                })
+            },
+            sendTest: function () {
+                axios.get('/cm-sms/message/send/' + this.phoneNumber).then((response) => {
+                    this.successMessage = 'Message sent to ' + this.phoneNumber;
+                    this.showSuccessAlert = true;
+                    this.loadState();
+                }, (error) => {
+                    this.dangerMessage = 'Message could not be sent';
+                    this.showDangerAlert = true;
+                    this.loadState();
                 })
             }
         },
         mounted: function () {
-            this.fetchArticles()
+            // this.$alert.setDefault({
+            //     duration: 100000
+            // });
+            this.loadState();
         }
     }
 </script>
+
+<style>
+    .fade {
+        opacity: 1;
+    }
+</style>

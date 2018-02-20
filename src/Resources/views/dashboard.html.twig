@@ -2,20 +2,15 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {#<link rel="stylesheet" href="{{ preload(asset('/build/dashboard.css', 'endroid_cm_sms')) }}">#}
+    <link rel="stylesheet" href="{{ preload(asset('/build/dashboard.css', 'endroid_cm_sms')) }}">
 {% endblock %}
 
 {% block content %}
     <h1>CM SMS Dashboard</h1>
-    <div id="application" data-load-path="{{ path('cm_sms_message_list') }}"></div>
+    <div id="dashboard" data-load-path="{{ path('cm_sms_message_list') }}"></div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script>
-        let appConfig = {
-            testPath: "{{ path('cm_sms_message_send', { phoneNumber: '0000000000' }) }}",
-        }
-    </script>
     <script src="{{ preload(asset('/build/dashboard.js', 'endroid_cm_sms')) }}"></script>
 {% endblock %}

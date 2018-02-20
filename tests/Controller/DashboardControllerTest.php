@@ -16,7 +16,7 @@ class DashboardControllerTest extends BundleTestCase
     public function testDashboardController()
     {
         $client = static::createClient();
-        $client->request('GET', '/cm-sms/');
+        $client->request('GET', '/cm-sms/message/send/0000000000');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
