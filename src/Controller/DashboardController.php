@@ -10,12 +10,27 @@
 namespace Endroid\CmSmsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
 
 final class DashboardController
 {
-    public function __invoke(Environment $twig): Response
+    private $kernel;
+    private $templating;
+
+    public function __construct(KernelInterface $kernel, Environment $templating)
     {
-        return new Response($twig->render('@EndroidCmSms/dashboard.html.twig'));
+        $this->kernel = $kernel;
+        $this->templating = $templating;
+    }
+
+    public function __invoke(): Response
+    {
+        // Disable profiler because it conflicts with Vue
+        if ($this->kernel->getContainer()->has('profiler')) {
+            $this->kernel->getContainer()->get('profiler')->disable();
+        }
+
+        return new Response($this->templating->render('@EndroidCmSms/dashboard.html.twig'));
     }
 }
