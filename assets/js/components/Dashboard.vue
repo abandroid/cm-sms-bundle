@@ -36,12 +36,12 @@
                         </thead>
                         <tbody>
                         <tr v-for="message in messages">
-                            <td>{{ message.date_created }}</td>
-                            <td>{{ message.date_updated }}</td>
-                            <td>{{ message.id }}</td>
-                            <td>{{ message.body }}</td>
-                            <td>{{ message.recipients }}</td>
-                            <td>{{ message.translation_key }}</td>
+                            <td :class="getStyleForStatus(message.translationKey)">{{ message.date_created }}</td>
+                            <td :class="getStyleForStatus(message.translationKey)">{{ message.date_updated }}</td>
+                            <td :class="getStyleForStatus(message.translationKey)">{{ message.id }}</td>
+                            <td :class="getStyleForStatus(message.translationKey)">{{ message.body }}</td>
+                            <td :class="getStyleForStatus(message.translationKey)">{{ message.recipients }}</td>
+                            <td :class="getStyleForStatus(message.translationKey)">{{ message.translation_key }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -67,6 +67,24 @@
             }
         },
         methods: {
+            getStyleForStatus: function (status) {
+                let style = 'table-warning';
+
+                switch (status) {
+                    case 'delivered':
+                        style = 'table-success';
+                        break;
+                    case 'unsent':
+                    case 'rejected':
+                    case 'failed':
+                        style = 'table-danger';
+                        break;
+                    default:
+                        break;
+                }
+
+                return 'table-warning';
+            },
             loadState: function () {
                 axios.get('/cm-sms/message').then((response) => {
                     this.messages = response.data.messages;
