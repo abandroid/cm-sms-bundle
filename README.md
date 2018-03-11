@@ -25,11 +25,13 @@ will be exposed as a service.
 ## Development
 
 The production version makes use of built assets. When you make changes to the
-assets use the following commands to install assets and create a new build.
+assets use the following commands to install assets, create a new build or
+watch to automatically rebuild on changes.
 
 ``` bash
 yarn
 yarn build
+yarn watch
 ```
 
 ## Versioning
