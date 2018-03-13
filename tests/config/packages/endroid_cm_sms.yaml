@@ -1,7 +1,5 @@
 endroid_cm_sms:
+    disable_delivery: true
     product_token: 'product_token'
     defaults:
-        sender: 'Endroid' # Should not contain more than 11 characters
-        unicode: 'auto'
-        minimum_number_of_message_parts: 1
-        maximum_number_of_message_parts: 3
+        sender: 'Endroid'
