@@ -21,7 +21,7 @@
         "doctrine/doctrine-bundle": "^1.8.1"
     },
     "require-dev": {
-        "endroid/bundle-test": "^1.1.4"
+        "endroid/bundle-test": "dev-master"
     },
     "autoload": {
         "psr-4": {
