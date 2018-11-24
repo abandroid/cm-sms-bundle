@@ -7,6 +7,9 @@ php:
   - 7.2
   - 7.3
 
+matrix:
+  fast_finish: true
+
 env:
   - COMPOSER_FLAGS="--prefer-lowest"
   - SYMFONY_VERSION="^3.4"
@@ -20,7 +23,6 @@ install:
   - composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
 
 script:
-  - vendor/bin/simple-phpunit
   - vendor/bin/simple-phpunit
 
 notifications:
