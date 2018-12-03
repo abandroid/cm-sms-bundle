@@ -18,7 +18,7 @@ final class MessageRepository extends EntityRepository
 {
     public function save(Message $message): void
     {
-        $this->getEntityManager()->merge($message);
+        $this->getEntityManager()->persist($message);
         $this->getEntityManager()->flush();
     }
 

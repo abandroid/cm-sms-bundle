@@ -134,19 +134,24 @@ class Message
         return $translationKeys[$this->statusCode];
     }
 
-    public static function fromDomain(DomainMessage $domainMessage): self
+    public static function createFromDomain(DomainMessage $domainMessage): self
     {
         $message = new static();
-        $message->id = $domainMessage->getId();
-        $message->body = $domainMessage->getBody();
-        $message->sender = $domainMessage->getFrom();
-        $message->recipients = $domainMessage->getTo();
-        $message->options = $domainMessage->getOptions();
-        $message->dateCreated = $domainMessage->getDateCreated();
-        $message->dateUpdated = $domainMessage->getDateUpdated();
-        $message->statusCode = $domainMessage->getStatusCode();
+        $message->updateFromDomain($domainMessage);
 
         return $message;
+    }
+
+    public function updateFromDomain(DomainMessage $domainMessage): void
+    {
+        $this->id = $domainMessage->getId();
+        $this->body = $domainMessage->getBody();
+        $this->sender = $domainMessage->getFrom();
+        $this->recipients = $domainMessage->getTo();
+        $this->options = $domainMessage->getOptions();
+        $this->dateCreated = $domainMessage->getDateCreated();
+        $this->dateUpdated = $domainMessage->getDateUpdated();
+        $this->statusCode = $domainMessage->getStatusCode();
     }
 
     public function addStatus(Status $status): void
