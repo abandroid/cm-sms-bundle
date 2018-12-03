@@ -4,12 +4,11 @@ services:
         autoconfigure: true
         public: false
 
+    Endroid\CmSms\Client: ~
+
     Endroid\CmSmsBundle\Controller\:
         resource: '../../Controller'
         tags: ['controller.service_arguments']
-
-    Endroid\CmSms\Client:
-        public: true
 
     Endroid\CmSmsBundle\Repository\MessageRepository:
         factory: ['@Doctrine\ORM\EntityManagerInterface', 'getRepository']

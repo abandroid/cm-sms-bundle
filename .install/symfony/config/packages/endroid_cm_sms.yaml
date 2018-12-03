@@ -1,10 +1,10 @@
 parameters:
-    env(bool:CM_SMS_DISABLE_DELIVERY): true
-    env(CM_SMS_PRODUCT_TOKEN): ''
+    env(CM_SMS_DISABLE_DELIVERY): ~
+    env(CM_SMS_PRODUCT_TOKEN): ~
 
 endroid_cm_sms:
     disable_delivery: '%env(bool:CM_SMS_DISABLE_DELIVERY)%'
-    product_token: '%env(CM_SMS_PRODUCT_TOKEN)%'
+    product_token: '%env(string:CM_SMS_PRODUCT_TOKEN)%'
     defaults:
         sender: 'Endroid'
         unicode: 'auto'
