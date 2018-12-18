@@ -30,7 +30,8 @@ final class MessageSendController
          * Make sure the entity is persisted before sending so status
          * updates received between sending and persisting can be linked.
          */
-        $repository->save(Message::fromDomain($message));
+        $messageEntity = Message::createFromDomain($message);
+        $repository->save($messageEntity);
 
         /*
          * When sending the message its properties are altered: defaults
@@ -41,7 +42,8 @@ final class MessageSendController
         /*
          * Update the stored message so it reflects the domain message.
          */
-        $repository->save(Message::fromDomain($message));
+        $messageEntity->updateFromDomain($message);
+        $repository->save($messageEntity);
 
         return new JsonResponse($message);
     }
