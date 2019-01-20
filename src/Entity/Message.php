@@ -127,7 +127,7 @@ class Message
     /**
      * @Serializer\VirtualProperty()
      */
-    public function getTranslationKey(): string
+    public function getStatusTranslationKey(): string
     {
         $translationKeys = StatusCode::getTranslationKeys();
 
