@@ -41,7 +41,7 @@
                             <td :class="getStyleForStatus(message.status_translation_key)">{{ message.id }}</td>
                             <td :class="getStyleForStatus(message.status_translation_key)">{{ message.body }}</td>
                             <td :class="getStyleForStatus(message.status_translation_key)">{{ message.recipients }}</td>
-                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.translation_key }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.status_translation_key }}</td>
                         </tr>
                         </tbody>
                     </table>
