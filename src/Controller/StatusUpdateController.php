@@ -26,11 +26,7 @@ final class StatusUpdateController
         // Support both GET and POST
         $data = Request::METHOD_GET === $request->getMethod() ? $request->query->all() : $request->request->all();
 
-        try {
-            $status = DomainStatus::fromWebHookData($data);
-        } catch (InvalidStatusDataException $exception) {
-            return new Response();
-        }
+        $status = DomainStatus::fromWebHookData($data);
 
         /** @var Message $message */
         $message = $repository->find($status->getMessageId());
