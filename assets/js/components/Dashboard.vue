@@ -36,12 +36,12 @@
                         </thead>
                         <tbody>
                         <tr v-for="message in messages">
-                            <td :class="getStyleForStatus(message.translationKey)">{{ message.date_created }}</td>
-                            <td :class="getStyleForStatus(message.translationKey)">{{ message.date_updated }}</td>
-                            <td :class="getStyleForStatus(message.translationKey)">{{ message.id }}</td>
-                            <td :class="getStyleForStatus(message.translationKey)">{{ message.body }}</td>
-                            <td :class="getStyleForStatus(message.translationKey)">{{ message.recipients }}</td>
-                            <td :class="getStyleForStatus(message.translationKey)">{{ message.translation_key }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.date_created }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.date_updated }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.id }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.body }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.recipients }}</td>
+                            <td :class="getStyleForStatus(message.status_translation_key)">{{ message.translation_key }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -59,7 +59,7 @@
         data: function () {
             return {
                 messages: [],
-                phoneNumber: '00000000',
+                phoneNumber: '0000000000',
                 showSuccessAlert: false,
                 successMessage: '',
                 showDangerAlert: false,
@@ -83,7 +83,7 @@
                         break;
                 }
 
-                return 'table-warning';
+                return style;
             },
             loadState: function () {
                 axios.get('/cm-sms/message').then((response) => {
