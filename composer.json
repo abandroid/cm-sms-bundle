@@ -16,8 +16,8 @@
         "endroid/cm-sms": "^2.0",
         "twig/twig": "^2.4",
         "doctrine/orm": "^2.6",
-        "symfony/asset": "^3.4||^4.0",
-        "symfony/web-link": "^3.4||^4.0",
+        "symfony/asset": "^3.4||^4.0||^5.0",
+        "symfony/web-link": "^3.4||^4.0||^5.0",
         "doctrine/doctrine-bundle": "^1.8.1"
     },
     "require-dev": {
