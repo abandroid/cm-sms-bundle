@@ -14,10 +14,10 @@ namespace Endroid\CmSmsBundle\DependencyInjection;
 use Endroid\CmSms\Client;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class EndroidCmSmsExtension extends Extension implements PrependExtensionInterface
 {

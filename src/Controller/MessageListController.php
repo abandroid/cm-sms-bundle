@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace Endroid\CmSmsBundle\Controller;
 
 use Endroid\CmSmsBundle\Repository\MessageRepository;
-use Symfony\Component\HttpFoundation\Response;
 use JMS\Serializer\SerializerBuilder;
+use Symfony\Component\HttpFoundation\Response;
 
 final class MessageListController
 {

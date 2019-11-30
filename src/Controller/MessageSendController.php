@@ -11,12 +11,12 @@ declare(strict_types=1);
 
 namespace Endroid\CmSmsBundle\Controller;
 
+use Endroid\CmSms\Client;
+use Endroid\CmSms\Message as DomainMessage;
 use Endroid\CmSmsBundle\Entity\Message;
 use Endroid\CmSmsBundle\Repository\MessageRepository;
-use Endroid\CmSms\Client;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Endroid\CmSms\Message as DomainMessage;
 
 final class MessageSendController
 {

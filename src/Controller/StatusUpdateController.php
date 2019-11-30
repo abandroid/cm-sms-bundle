@@ -12,12 +12,12 @@ declare(strict_types=1);
 namespace Endroid\CmSmsBundle\Controller;
 
 use Endroid\CmSms\Exception\InvalidStatusDataException;
+use Endroid\CmSms\Status as DomainStatus;
 use Endroid\CmSmsBundle\Entity\Message;
 use Endroid\CmSmsBundle\Entity\Status;
 use Endroid\CmSmsBundle\Repository\MessageRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Endroid\CmSms\Status as DomainStatus;
 
 final class StatusUpdateController
 {
