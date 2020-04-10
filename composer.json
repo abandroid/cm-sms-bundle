@@ -15,7 +15,7 @@
         "php": ">=7.2",
         "doctrine/doctrine-bundle": "^1.8.1||^2.0",
         "doctrine/orm": "^2.6",
-        "endroid/cm-sms": "^2.0",
+        "endroid/cm-sms": "^2.1",
         "endroid/installer": "^1.2.2",
         "symfony/asset": "^3.4||^4.4||^5.0",
         "symfony/web-link": "^3.4||^4.4||^5.0",

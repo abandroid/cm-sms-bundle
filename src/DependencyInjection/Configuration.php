@@ -17,14 +17,17 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 final class Configuration implements ConfigurationInterface
 {
+    /** @psalm-suppress PossiblyUndefinedMethod */
     public function getConfigTreeBuilder(): TreeBuilder
     {
+        /** @psalm-suppress TooManyArguments */
         $treeBuilder = new TreeBuilder('endroid_cm_sms');
 
-        if (method_exists($treeBuilder, 'root')) {
-            $rootNode = $treeBuilder->root('endroid_cm_sms');
-        } else {
+        if (method_exists($treeBuilder, 'getRootNode')) {
             $rootNode = $treeBuilder->getRootNode();
+        } else {
+            /** @psalm-suppress UndefinedMethod */
+            $rootNode = $treeBuilder->root('endroid_cm_sms');
         }
 
         $rootNode

@@ -22,7 +22,7 @@ final class MessageRepository extends EntityRepository
         $this->getEntityManager()->flush();
     }
 
-    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
         if (is_null($orderBy)) {
             $orderBy = ['dateUpdated' => 'DESC'];
