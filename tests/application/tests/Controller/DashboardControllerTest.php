@@ -18,7 +18,7 @@ class DashboardControllerTest extends WebTestCase
     public function testDashboardController()
     {
         $client = static::createClient();
-        $client->request('GET', '/cm-sms');
+        $client->request('GET', '/cm-sms/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
